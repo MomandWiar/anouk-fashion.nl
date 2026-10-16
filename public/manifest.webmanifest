@@ -1,0 +1,13 @@
+{
+  "name": "Anouk Fashion Kassa",
+  "short_name": "Kassa",
+  "start_url": "/kassa",
+  "display": "standalone",
+  "background_color": "#faf7f2",
+  "theme_color": "#9a4a33",
+  "lang": "nl",
+  "icons": [
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/icon-512.png", "sizes": "192x192", "type": "image/png", "purpose": "any" }
+  ]
+}

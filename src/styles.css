@@ -1,0 +1,227 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Design system definition.
+ *
+ * The @theme inline block maps CSS custom properties to Tailwind utility
+ * classes (e.g. --color-primary -> bg-primary, text-primary).
+ *
+ * The :root and .dark blocks define the actual color values using oklch.
+ * All colors MUST use oklch format.
+ *
+ * To add a new semantic color:
+ * 1. Add the variable to :root (light value) and .dark (dark value)
+ * 2. Register it in @theme inline as --color-<name>: var(--<name>)
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --color-brand-gold: var(--brand-gold);
+  --color-brand-heart: var(--brand-heart);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --font-sans: "Figtree", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --radius: 0.5rem;
+  --brand-gold: oklch(0.73 0.085 75);
+  --brand-heart: oklch(0.86 0.044 78);
+  --background: oklch(0.953 0.021 78);
+  --foreground: oklch(0.22 0.003 75);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.22 0.003 75);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.22 0.003 75);
+  --primary: oklch(0.23 0.003 75);
+  --primary-foreground: oklch(0.985 0.009 78);
+  --secondary: oklch(0.929 0.028 78);
+  --secondary-foreground: oklch(0.30 0.015 75);
+  --muted: oklch(0.932 0.018 78);
+  --muted-foreground: oklch(0.49 0.018 75);
+  --accent: oklch(0.91 0.046 78);
+  --accent-foreground: oklch(0.36 0.04 75);
+  --destructive: oklch(0.55 0.2 27);
+  --destructive-foreground: oklch(0.99 0 0);
+  --success: oklch(0.55 0.12 150);
+  --success-foreground: oklch(0.99 0 0);
+  --warning: oklch(0.75 0.14 75);
+  --warning-foreground: oklch(0.25 0.04 60);
+  --border: oklch(0.87 0.035 78);
+  --input: oklch(0.84 0.035 78);
+  --ring: oklch(0.68 0.08 75);
+  --chart-1: oklch(0.68 0.08 75);
+  --chart-2: oklch(0.6 0.08 150);
+  --chart-3: oklch(0.65 0.1 75);
+  --chart-4: oklch(0.5 0.025 75);
+  --chart-5: oklch(0.7 0.08 10);
+  --sidebar: oklch(0.929 0.028 78);
+  --sidebar-foreground: oklch(0.22 0.003 75);
+  --sidebar-primary: oklch(0.23 0.003 75);
+  --sidebar-primary-foreground: oklch(0.985 0.009 78);
+  --sidebar-accent: oklch(0.91 0.046 78);
+  --sidebar-accent-foreground: oklch(0.36 0.04 75);
+  --sidebar-border: oklch(0.87 0.035 78);
+  --sidebar-ring: oklch(0.68 0.08 75);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+  }
+}
+
+@layer base {
+  h1, h2, h3 { font-family: var(--font-display); letter-spacing: 0; }
+  .tabular { font-variant-numeric: tabular-nums; }
+}
+
+.pos-sales-grid { display: grid; grid-template-columns: 170px minmax(0, 1fr) 330px; overflow: hidden; }
+.pos-sales-grid.hidden { display: none; }
+.pos-categories { min-width: 0; overflow-y: auto; padding: 12px 8px; border-right: 1px solid var(--border); background: var(--secondary); }
+.pos-section-title { padding: 4px 8px 12px; font-size: 13px; font-weight: 600; color: var(--muted-foreground); }
+.pos-category { width: 100%; height: 50px; justify-content: flex-start; margin-bottom: 3px; padding: 8px 12px; white-space: normal; text-align: left; font-size: 16px; border-radius: 6px; }
+.pos-catalog { display: flex; min-width: 0; min-height: 0; flex-direction: column; gap: 12px; padding: 14px; }
+.pos-product-area { flex: 1; min-height: 120px; overflow-y: auto; }
+.pos-product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(135px, 1fr)); gap: 8px; align-content: start; }
+.pos-product { height: 94px; flex-direction: column; align-items: flex-start; justify-content: flex-start; gap: 4px; padding: 12px; white-space: normal; text-align: left; overflow-wrap: anywhere; border-radius: 8px; background: var(--card); border-color: var(--border); box-shadow: none; }
+.pos-loose-entry { display: grid; flex-shrink: 0; grid-template-columns: minmax(0, 1fr) 170px; align-items: end; gap: 14px; padding-top: 12px; border-top: 1px solid var(--border); }
+.pos-amount-panel { display: flex; min-width: 0; flex-direction: column; gap: 8px; }
+.pos-receipt { min-width: 0; margin: 14px 14px 14px 0; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+.pos-management { display: grid; grid-template-columns: 210px minmax(0, 1fr); gap: 14px; padding: 14px; }
+.pos-management-nav { align-self: start; padding: 8px; border: 1px solid var(--border); border-radius: 8px; background: var(--card); }
+.pos-management-shortcuts { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; margin-bottom: 12px; }
+.pos-management-shortcuts > a { min-height: 60px; height: auto; justify-content: flex-start; padding: 12px; white-space: normal; background: var(--card); border-color: var(--border); box-shadow: none; }
+.pos-scan-content { min-height: 480px; padding: 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; }
+.pos-scan-grid { display: grid; grid-template-columns: minmax(200px, 30%) minmax(0, 1fr); gap: 20px; }
+.pos-camera { position: relative; display: flex; align-items: center; justify-content: center; height: 340px; overflow: hidden; background: var(--accent); border: 1px dashed var(--primary); border-radius: 8px; }
+.pos-camera-target { position: absolute; inset: 35% 10%; border: 2px solid var(--primary-foreground); border-radius: 8px; pointer-events: none; }
+.pos-cash-screen { display: grid; grid-template-columns: 310px minmax(0, 1fr); gap: 14px; min-height: 0; flex: 1; padding: 14px; overflow: auto; }
+.pos-cash-receipt, .pos-cash-payment { display: flex; flex-direction: column; min-width: 0; min-height: 480px; padding: 20px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; }
+@media (min-width: 1500px) { .pos-sales-grid { grid-template-columns: 190px minmax(0, 1fr) 400px; } }
+@media (max-width: 1000px) {
+  .pos-management { grid-template-columns: 180px minmax(0, 1fr); }
+  .pos-management-shortcuts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .pos-scan-grid { grid-template-columns: 1fr; }
+  .pos-camera { height: 230px; }
+  .pos-cash-screen { grid-template-columns: 250px minmax(0, 1fr); }
+  .pos-sales-grid { grid-template-columns: 140px minmax(0, 1fr) 310px; }
+  .pos-loose-entry { grid-template-columns: minmax(0, 1fr) 152px; gap: 8px; }
+  .pos-loose-entry > .grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .pos-catalog { padding: 10px; }
+}
+@media (max-width: 760px) {
+  .pos-management, .pos-cash-screen { grid-template-columns: 1fr; }
+  .pos-management-nav { display: flex; overflow-x: auto; gap: 4px; }
+  .pos-management-nav > a { min-width: 145px; }
+  .pos-management-nav > div { display: none; }
+  .pos-cash-receipt { min-height: 180px; }
+  .pos-cash-payment { min-height: 560px; padding: 14px; }
+  .pos-sales-grid { display: flex; flex-direction: column; overflow: auto; }
+  .pos-categories { display: flex; flex-shrink: 0; gap: 6px; padding: 8px; overflow-x: auto; border-right: 0; border-bottom: 1px solid var(--border); }
+  .pos-section-title { display: none; }
+  .pos-category { flex-shrink: 0; width: auto; min-width: 96px; height: 44px; margin: 0; justify-content: center; }
+  .pos-catalog { flex-shrink: 0; min-height: 350px; }
+  .pos-product-area { max-height: 250px; }
+  .pos-loose-entry { grid-template-columns: minmax(0, 1fr) 140px; }
+  .pos-loose-entry > .grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .pos-receipt { min-height: 340px; flex-shrink: 0; margin: 0 10px 10px; }
+}
+
+@media print {
+  body * { visibility: hidden !important; }
+  #print-area, #print-area * { visibility: visible !important; }
+  #print-area { position: absolute; left: 0; top: 0; }
+  @page { margin: 0; }
+}
+
+.anouk-logo { display: block; width: 220px; height: 104px; object-fit: contain; }
+.anouk-logo-compact { width: 96px; height: 42px; }
+.pos-header .anouk-logo { background: var(--background); border-radius: 4px; padding: 1px 5px; }
+.brand-script { font-family: "Dancing Script", "Brush Script MT", cursive; }
+.pos-add-product { justify-content: center; align-items: center; border-style: dashed; color: var(--muted-foreground); }
+.pos-numpad { width: 240px; max-width: 100%; flex-shrink: 0; }
+.pos-numpad-compact { width: 200px; }
+.customer-display { position: relative; display: flex; flex-direction: column; min-height: 100dvh; padding: 28px 36px; background: var(--background); overflow: hidden; }
+.display-header { position: relative; z-index: 1; display: flex; justify-content: center; align-items: center; flex-shrink: 0; }
+.display-header:has(.anouk-logo-compact) { justify-content: space-between; margin-bottom: 24px; }
+.display-welcome { position: relative; z-index: 1; display: flex; flex: 1; flex-direction: column; align-items: center; justify-content: center; gap: 16px; text-align: center; padding: 28px 0; }
+.display-welcome h1 { font-size: 76px; font-weight: 700; line-height: 1.1; }
+.display-welcome h1 svg { width: 48px; height: 48px; }
+.display-eyebrow { text-transform: uppercase; font-family: Georgia, serif; font-size: 14px; letter-spacing: 0; color: var(--brand-gold); }
+.display-categories { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 16px; }
+.display-categories span { background: var(--card); border: 1px solid var(--border); border-radius: 24px; padding: 12px 24px; font-size: 18px; font-weight: 600; }
+.display-payment-note { margin-top: auto; padding-top: 48px; color: var(--muted-foreground); }
+.display-purchase { position: relative; z-index: 1; display: grid; grid-template-columns: minmax(0, 1fr) minmax(220px, 30%); gap: 24px; flex: 1; min-height: 0; }
+.display-lines { display: flex; flex-direction: column; min-width: 0; padding: 24px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; }
+.display-line-scroll { overflow-y: auto; max-height: 70dvh; }
+.display-line { display: flex; align-items: center; gap: 14px; padding: 14px 8px; border-bottom: 1px solid var(--border); }
+.display-line-new { background: var(--background); border: 1px solid var(--brand-gold); border-radius: 8px; }
+.display-shirt { display: flex; justify-content: center; align-items: center; width: 42px; height: 42px; border-radius: 8px; flex-shrink: 0; background: var(--secondary); color: var(--brand-gold); }
+.display-total { display: flex; flex-direction: column; align-items: center; padding: 28px 18px; background: var(--primary); color: var(--primary-foreground); border-radius: 8px; text-align: center; }
+.display-total-number { font-size: 42px; margin: 12px 0 8px; overflow-wrap: anywhere; }
+.display-thanks { margin-top: auto; padding-top: 40px; color: var(--brand-gold); }
+.display-fullscreen { position: absolute; bottom: 12px; right: 12px; z-index: 3; color: var(--muted-foreground); }
+.display-hearts { position: absolute; inset: 0; pointer-events: none; color: var(--brand-heart); }
+.display-hearts svg { position: absolute; fill: currentColor; width: 25px; height: 25px; }
+.display-hearts svg:nth-child(1) { left: 7%; top: 17%; width: 36px; height: 36px; transform: rotate(-16deg); }
+.display-hearts svg:nth-child(2) { left: 30%; top: 7%; transform: rotate(-12deg); }
+.display-hearts svg:nth-child(3) { right: 28%; top: 6%; transform: rotate(12deg); }
+.display-hearts svg:nth-child(4) { right: 8%; top: 18%; width: 34px; height: 34px; }
+.display-hearts svg:nth-child(5) { left: 4%; top: 48%; width: 20px; }
+.display-hearts svg:nth-child(6) { right: 5%; top: 48%; }
+.display-hearts svg:nth-child(7) { left: 15%; bottom: 22%; }
+.display-hearts svg:nth-child(8) { left: 46%; bottom: 7%; width: 20px; }
+@media (max-width: 1000px) { .pos-numpad-compact { width: 152px; } }
+@media (max-width: 760px) { .customer-display { padding: 20px 16px; } .display-welcome h1 { font-size: 52px; } .display-purchase { grid-template-columns: 1fr; } .display-total-number { font-size: 36px; } .display-thanks { padding-top: 20px; } .display-line { gap: 8px; } .display-lines { padding: 16px; } .display-header:has(.anouk-logo-compact) { gap: 12px; } .pos-numpad-compact { width: 140px; } }
